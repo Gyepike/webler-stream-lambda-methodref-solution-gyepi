@@ -231,7 +231,7 @@ public class StreamUtilExampleServiceTest {
         when(dataLoadMock.nums1()).thenReturn(numbersList);
 
         // Act and Assert
-        System.out.println("--------Task10---------");
+        System.out.println("--------Task09---------");
         double product = streamUtilExampleService.calculateProduct(dataLoadMock.nums1());
         printElement(product);
         printSeparator();
