@@ -12,7 +12,5 @@ public class DecimalFormatHelper {
         return new DecimalFormat("#.##", symbols);
     }
 
-    private DecimalFormatHelper() {
-
-    }
+    private DecimalFormatHelper() {}
 }

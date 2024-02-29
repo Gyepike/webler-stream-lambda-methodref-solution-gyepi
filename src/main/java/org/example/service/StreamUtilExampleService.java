@@ -11,7 +11,6 @@ import java.util.stream.Stream;
 
 import static org.example.util.DecimalFormatHelper.createDecimalFormat;
 
-
 public class StreamUtilExampleService {
 
     DataLoad dataLoad;
@@ -20,15 +19,15 @@ public class StreamUtilExampleService {
         this.dataLoad = dataLoad;
     }
 
-    public  <T> Stream<T> createStreamFromCollection(Collection<T> collection) {
+    public <T> Stream<T> createStreamFromCollection(Collection<T> collection) {
         return collection.stream();
     }
 
-    public  Collection<? extends Number> squareNumbers(Collection<? extends Number> nums) {
+    public Collection<? extends Number> squareNumbers(Collection<? extends Number> nums) {
         boolean isFloatingPoint = false;
 
         // Check if the collection contains floating-point numbers
-        for(Number num : nums) {
+        for (Number num : nums) {
             if (num instanceof Double || num instanceof Float) {
                 isFloatingPoint = true;
                 break;
@@ -48,7 +47,7 @@ public class StreamUtilExampleService {
         }
     }
 
-    public  <T extends Number> double sumElements(Collection<T> collection) {
+    public <T extends Number> double sumElements(Collection<T> collection) {
         Optional<?> firstElement = collection.stream().findFirst();
         if (firstElement.isPresent() &&
                 ((firstElement.get() instanceof Double) || (firstElement.get() instanceof Float))) {
@@ -62,7 +61,7 @@ public class StreamUtilExampleService {
         }
     }
 
-    public  <T extends Number> T sumElementsMoreGeneric(Collection<T> collection) {
+    public <T extends Number> T sumElementsMoreGeneric(Collection<T> collection) {
         Optional<T> firstElement = collection.stream().findFirst();
         if (firstElement.isPresent()) {
             Class<?> elementType = firstElement.get().getClass();
@@ -85,7 +84,7 @@ public class StreamUtilExampleService {
         return null; // Default value if collection is empty
     }
 
-    public  <T extends Number> double sumElements(List<T> nums) {
+    public <T extends Number> double sumElements(List<T> nums) {
         if (nums.getFirst() instanceof Double || nums.getFirst() instanceof Float) {
             return nums.stream()
                     .mapToDouble(Number::doubleValue)
@@ -96,7 +95,8 @@ public class StreamUtilExampleService {
                     .sum();
         }
     }
-    public  <T extends Number> Collection<T> filterEven(Collection<T> nums) {
+
+    public <T extends Number> Collection<T> filterEven(Collection<T> nums) {
         return nums.stream()
                 .filter(num -> num.intValue() % 2 == 0)
                 .collect(Collectors.toList());
@@ -110,25 +110,25 @@ public class StreamUtilExampleService {
                 .collect(Collectors.toList());
     }
 
-    public  <T extends Number> Collection<T> filterAndCopy(Collection<T> nums) {
+    public <T extends Number> Collection<T> filterAndCopy(Collection<T> nums) {
         return nums.stream()
                 .filter(num -> num.intValue() % 3 == 0)
                 .collect(Collectors.toList());
     }
 
-    public  <T extends Number> Collection<T> filterAndCopyGreaterThan(Collection<T> collection, int threshold) {
+    public <T extends Number> Collection<T> filterAndCopyGreaterThan(Collection<T> collection, int threshold) {
         return collection.stream()
                 .filter(num -> num.intValue() > threshold)
                 .collect(Collectors.toList());
     }
 
-    public  <T extends Number> Collection<T> filterAndCopyOddGreaterThan(Collection<T> collection, int threshold) {
+    public <T extends Number> Collection<T> filterAndCopyOddGreaterThan(Collection<T> collection, int threshold) {
         return collection.stream()
                 .filter(num -> num.intValue() > threshold && num.intValue() % 2 != 0)
                 .collect(Collectors.toList());
     }
 
-    public  <T extends Number> double calculateProduct(Collection<T> collection) {
+    public <T extends Number> double calculateProduct(Collection<T> collection) {
         return collection.stream()
                 .mapToDouble(Number::doubleValue)
                 .reduce(1, (a, b) -> a * b);

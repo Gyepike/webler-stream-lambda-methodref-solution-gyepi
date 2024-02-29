@@ -20,7 +20,6 @@ public class Printer {
                 .forEach(System.out::println);
     }
 
-    // task 04
     public static <T> void printElement(T element) {
         System.out.println(element);
     }

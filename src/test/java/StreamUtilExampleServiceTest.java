@@ -26,7 +26,6 @@ public class StreamUtilExampleServiceTest {
         // Customize the behavior of dataInitializerMock as needed for each test case
       dataLoadMock = mock(DataLoad.class);
       streamUtilExampleService = new StreamUtilExampleService(dataLoadMock);
-
     }
 
     @Test()
